@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Listado de Ventas</title>
+	
+    <style>
+        body {
+            background-color: #333; /* Color de fondo oscuro para todo el cuerpo */
+            color: #fff; /* Color de texto blanco */
+            font-family: Arial, sans-serif; /* Tipo de fuente */
+        }
+        table {
+            width: 100%; /* Ancho completo de la tabla */
+            border-collapse: collapse; /* Borde colapsado para un mejor aspecto */
+            margin-top: 20px; /* Espacio superior */
+        }
+        table, th, td {
+            border: 1px solid #ddd; /* Borde delgado y gris para celdas y encabezados */
+            padding: 8px; /* Espaciado interno */
+            text-align: left; /* Alineación del texto a la izquierda */
+        }
+        th {
+            background-color: #555; /* Fondo gris oscuro para los encabezados */
+            color: #fff; /* Texto blanco para los encabezados */
+        }
+        tr:nth-child(even) {
+            background-color: #666; /* Fondo gris oscuro para filas pares */
+        }
+        tr:nth-child(odd) {
+            background-color: #444; /* Fondo gris más oscuro para filas impares */
+        }
+        .btn {
+            background-color: #4CAF50; /* Color de fondo verde para el botón */
+            color: white; /* Texto blanco para el botón */
+            padding: 10px 20px; /* Espaciado interno */
+            text-align: center; /* Alineación del texto al centro */
+            text-decoration: none; /* Sin subrayado */
+            display: inline-block; /* Mostrar como elemento en línea */
+            margin-top: 20px; /* Espacio superior */
+            border: none; /* Sin borde */
+            border-radius: 5px; /* Bordes redondeados */
+        }
+        .btn:hover {
+            background-color: #45a049; /* Color de fondo verde más oscuro al pasar el ratón */
+        }
+    </style>
+</head>
+<body>
+    <h1>Listado de Ventas</h1>
+	
+	<div align="center">
+	    <a th:href="@{/vistas/RegistrarVenta}" class="btn btn-success">Nueva Venta</a>
+	</div>
+	  
+    <table>
+        <thead>
+            <tr>
+                <th>ID Venta</th>
+                <th>Cliente</th>
+                <th>Fecha</th>
+                <th>Total</th>
+                <th>Acciones</th> <!-- Columna para acciones -->
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Iterar sobre la lista de ventas -->
+            <tr th:each="venta : ${listadoVentas}">
+                <td th:text="${venta.idventa}"></td>
+                <td th:text="${venta.cliente}"></td>
+                <td th:text="${venta.fecha}"></td>
+                <td th:text="${venta.total}"></td>
+                <td>
+                    <a th:href="@{/vistas/EliminarVenta/{id}(id=${venta.idventa})}" class="btn btn-danger">Eliminar</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <a href="/vistas/Mantenimiento" class="btn">Volver al Menú Principal</a>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de Empleados</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color:black;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            text-align: center;
+            color:white;
+            margin-top: 20px;
+        }
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background-color: #333;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        table th, table td {
+            padding: 12px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+        table th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        table td {
+            background-color: grey;
+        }
+        .btn {
+            display: inline-block;
+            padding: 8px 16px;
+            text-decoration: none;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: rgb(255, 128, 255);
+        }
+    </style>
+</head>
+<body>
+    <h1>Listado de Empleados</h1>
+    
+    <div align="center">
+        <a th:href="@{/vistas/RegistrarEmpleado}" class="btn btn-success">Nuevo Empleado</a>
+    </div>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Correo</th>
+                <th>Edad</th>
+                <th>DNI</th>
+                <th>Sexo</th>
+                <th>Dirección</th>
+                <th>Cargo</th>
+                <th>Código</th>
+                <th>Password</th>
+                <th colspan="2">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <th:block th:each="e : ${listado}">
+                <tr>
+                    <td th:text="${e.idEmpleado}"></td>
+                    <td th:text="${e.nombre}"></td>
+                    <td th:text="${e.apellido}"></td>
+                    <td th:text="${e.correo}"></td>
+                    <td th:text="${e.edad}"></td>
+                    <td th:text="${e.dni}"></td>
+                    <td th:text="${e.sexo}"></td>
+                    <td th:text="${e.direccion}"></td>
+                    <td th:text="${e.cargo}"></td>
+                    <td th:text="${e.codigo}"></td>
+                    <td th:text="${e.password}"></td>
+                    <td>
+                        <a th:href="@{/vistas/editarEmpleado/{id}(id=${e.idEmpleado})}" class="btn btn-primary">Editar</a>
+                    </td>
+                    <td>
+                        <a th:href="@{/vistas/eliminarEmpleado/{id}(id=${e.idEmpleado})}" class="btn btn-warning">Eliminar</a>
+                    </td>
+                </tr>
+            </th:block>
+        </tbody>
+    </table>
+	<a href="/vistas/Mantenimiento" class="btn">Volver al Menú Principal</a>
+</body>
+</html>

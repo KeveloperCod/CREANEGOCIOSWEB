@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registrar Producto</title>
+    <title>Registrar Empleado</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -33,7 +33,7 @@
             text-align: left;
             border-bottom: 1px solid #ddd;
         }
-        input[type="text"], input[type="number"] {
+        input[type="text"], input[type="number"], select {
             width: calc(100% - 20px); /* Ajusta el ancho del input */
             padding: 8px;
             margin: 6px 0;
@@ -56,43 +56,57 @@
     </style>
 </head>
 <body>
-    <h1>Registrar Producto</h1>
-    <form th:action="@{/vistas/GuardarProducto}" method="post" th:object="${regproducto}">
+    <h1>Registrar Empleado</h1>
+    <form th:action="@{/vistas/GuardarEmpleado}" method="post" th:object="${regempleado}" >
         <table>
-            <input type="hidden" th:field="*{idproducto}">
+            <input type="hidden" th:field="*{idEmpleado}">
             <tr>
-                <td>Nombre</td>
-                <td><input type="text" th:field="*{nombre}"></td>
+                <td>Nombre:</td>
+                <td><input type="text" th:field="*{nombre}"/></td>
             </tr>
             <tr>
-                <td>Precio de Venta</td>
-                <td><input type="number" step="0.01" th:field="*{precioventa}"></td>
+                <td>Apellido:</td>
+                <td><input type="text" th:field="*{apellido}"/></td>
             </tr>
             <tr>
-                <td>Stock</td>
-                <td><input type="number" th:field="*{stock}"></td>
+                <td>Correo:</td>
+                <td><input type="text" th:field="*{correo}"/></td>
             </tr>
             <tr>
-                <td>Precio de Compra</td>
-                <td><input type="number" step="0.01" th:field="*{preciocomp}"></td>
+                <td>Edad:</td>
+                <td><input type="number" th:field="*{edad}"/></td>
             </tr>
             <tr>
-                <td>Estado</td>
-				<td>
-					<select th:field="*{estado}">
-						 <option value="Disponible">Disponible</option>
-						<option value="No Disponible">No Disponible</option>
-					</select>
-				</td>
+                <td>DNI:</td>
+                <td><input type="text" th:field="*{dni}"/></td>
             </tr>
             <tr>
-                <td>Descripción</td>
-                <td><input type="text" th:field="*{descrip}"></td>
-            </tr>
-            <tr>
-                <td colspan="2" align="center">
-                    <input type="submit" value="Registrar">
+                <td>Sexo:</td>
+                <td>
+                    <select th:field="*{sexo}">
+                        <option value="M">Masculino</option>
+                        <option value="F">Femenino</option>
+                    </select>
                 </td>
+            </tr>
+            <tr>
+                <td>Dirección:</td>
+                <td><input type="text" th:field="*{direccion}"/></td>
+            </tr>
+            <tr>
+                <td>Cargo:</td>
+                <td><input type="text" th:field="*{cargo}"/></td>
+            </tr>
+            <tr>
+                <td>Código:</td>
+                <td><input type="text" th:field="*{codigo}"/></td>
+            </tr>
+            <tr>
+                <td>Password:</td>
+                <td><input type="text" th:field="*{password}"/></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center"><input type="submit" value="Guardar"/></td>
             </tr>
         </table>
     </form>

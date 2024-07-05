@@ -1,16 +1,67 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Listado de Productos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #333; /* Color de fondo oscuro */
+            color: #fff; /* Color de texto blanco */
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+        }
+        h2 {
+            text-align: center;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #45a049;
+        }
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background-color: #555; /* Color de fondo para la tabla */
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+        }
+        table th, table td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        table th {
+            background-color: #4CAF50; /* Color de fondo para las celdas del encabezado */
+            color: white;
+        }
+        table td {
+            background-color: #666; /* Color de fondo para las celdas del cuerpo */
+        }
+    </style>
 </head>
-<body bgcolor="#83FEB3">
-    <h1 align="center">Listado de Productos</h1>
+<body>
+    <h1>Listado de Productos</h1>
     
-    <h2 align="center">
-        <a th:href="@{RegistrarProducto}" th:text="'Nuevo Producto'"
-           title="Registrar nuevo producto" class="btn btn-success"></a>
+    <h2>
+        <a th:href="@{RegistrarProducto}" class="btn">Nuevo Producto</a>
     </h2>
-    <table align="center" border="2">
+    
+    <table>
         <tr>
             <th>Código</th>
             <th>Nombre</th>
@@ -31,15 +82,14 @@
                 <td th:text="${p.estado}"></td>
                 <td th:text="${p.descrip}"></td>
                 <td>
-                    <a th:href="@{editar/}+${p.idproducto}" th:text="'Editar'" 
-                       title="Editar Producto" class="btn btn-primary"></a>
+                    <a th:href="@{editar/}+${p.idproducto}" class="btn">Editar</a>
                 </td>
                 <td>
-                    <a th:href="@{eliminar/}+${p.idproducto}" th:text="'Eliminar'"
-                       title="Eliminar Producto" class="btn btn-warning"></a>
+                    <a th:href="@{eliminar/}+${p.idproducto}" class="btn">Eliminar</a>
                 </td>
             </tr>
         </th:block>
     </table>
+	<a href="/vistas/Mantenimiento" class="btn">Volver al Menú Principal</a>
 </body>
 </html>

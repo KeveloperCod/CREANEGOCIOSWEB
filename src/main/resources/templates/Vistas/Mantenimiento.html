@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Principal</title>
+    <style>
+		body {
+		    font-family: Arial, sans-serif;
+			background-color: black;
+		    background-size: contain; /* Ajustar tamaño para contener sin estirar */
+		    background-position: center; /* Posicionar la imagen centrada */
+		    background-repeat: no-repeat; /* Evitar que se repita la imagen */
+		    background-attachment: fixed; /* Fijar la imagen de fondo */
+		    margin: 0;
+		    padding: 0;
+		    color: #f0f0f0; /* Color de texto */
+		}
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            text-align: center;
+            padding-top: 50px;
+        }
+        h1 {
+            color:white;
+        }
+        .button {
+            display: inline-block;
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+            margin: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .button:hover {
+            background-color: #45a049;
+        }
+
+        /* Estilos para el botón de cerrar sesión */
+        .btn-cerrar-sesion {
+            display: inline-block;
+            background-color: #f44336; /* Color de fondo rojo */
+            color: white; /* Color de texto blanco */
+            text-align: center;
+            padding: 14px 20px; /* Espaciado interno del botón */
+            text-decoration: none; /* Sin subrayado en el texto */
+            margin: 10px; /* Margen */
+            cursor: pointer; /* Cambiar cursor a mano */
+            border-radius: 5px; /* Bordes redondeados */
+            transition: background-color 0.3s; /* Transición suave */
+            position: absolute; /* Posición absoluta */
+            top: 20px; /* 20px desde arriba */
+            right: 20px; /* 20px desde la derecha */
+        }
+
+        .btn-cerrar-sesion:hover {
+            background-color: #d32f2f; /* Cambio de color al pasar el mouse */
+        }
+
+        /* Estilos para el ícono de cerrar sesión */
+        .btn-cerrar-sesion .icono-cerrar {
+            font-size: 18px; /* Tamaño del ícono */
+            margin-left: 5px; /* Margen izquierdo para separación */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Menu Principal</h1>
+        
+        <div>
+            <a href="/vistas/ListadoEmpleado" class="button">Mantener Empleados</a>
+			<a href="/vistas/ListadoVenta" class="button">Mantener Venta</a>
+            <a href="/vistas/ListadoProducto" class="button">Mantener Productos</a>
+        </div>
+        
+    </div>
+    
+    <!-- Botón de cerrar sesión con ícono -->
+    <a href="/vistas/Login" class="btn-cerrar-sesion">Cerrar Sesión <span class="icono-cerrar">&#10006;</span></a>
+
+</body>
+</html>
